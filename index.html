@@ -15,6 +15,11 @@
             <div class="nav__brand">
                 <a href="#" class="nav__logo">Portföy</a>
             </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav_menu" id="nav-menu">
                 <li class="nav__item">
                     <a href="#home" class="nav__link active">Ana Sayfa</a>
@@ -293,6 +298,24 @@
 
     <!-- Scroll Top Button - Görünürlük kontrolü -->
     <script>
+        // Hamburger Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            navToggle.classList.toggle('active');
+        });
+
+        // Menü linklerine tıklanınca menüyü kapat
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Scroll Top Button - Görünürlük kontrolü
         const scrollTopBtn = document.getElementById('scroll-top');
 
         window.addEventListener('scroll', () => {
@@ -304,14 +327,13 @@
         });
 
         // Active Navigation Link On Scroll
-
-        const sections = document.querySelectorAll('section[id]');
+        const sectionsForNav = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav__link');
 
         window.addEventListener('scroll', () => {
             const scrollY = window.pageYOffset;
 
-            sections.forEach(section => {
+            sectionsForNav.forEach(section => {
                 const sectionHeight = section.offsetHeight;
                 const sectionTop = section.offsetTop - 100;
                 const sectionId = section.getAttribute('id');
@@ -326,6 +348,32 @@
                 }
             });
         });
+
+        // Section Scroll Animation
+        const sections = document.querySelectorAll('.section');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Hero section'ı başlangıçta görünür yap
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroSection.classList.add('visible');
+        }
     </script>
 </body>
 
