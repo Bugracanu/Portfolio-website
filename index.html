@@ -275,6 +275,58 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__copyright">
+                © 2025 Buğra Can Usta. Tüm hakları saklıdır.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#home" class="scroll-top" id="scroll-top">
+        <span>↑</span>
+    </a>
+
+    <!-- Scroll Top Button - Görünürlük kontrolü -->
+    <script>
+        const scrollTopBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 700) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        // Active Navigation Link On Scroll
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav__link');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
