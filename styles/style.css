@@ -1,25 +1,22 @@
 :root {
     --header-height: 3.5rem;
 
-    /* Modern Dark Theme Colors */
-    --hue: 200;
-    --sat: 90%;
-    --lig: 60%;
+    /* Monochrome Dark Theme Colors */
+    --first-color: #000000;
+    --first-color-alt: #333333;
+    --first-color-light: #666666;
 
-    --first-color: hsl(var(--hue), var(--sat), var(--lig));
-    --first-color-alt: hsl(var(--hue), var(--sat), 40%);
-    /* Darker shade for hover */
-    --first-color-light: hsl(var(--hue), var(--sat), 85%);
-    --title-color: #f8fafc;
-    --text-color: #cbd5e1;
-    --text-color-light: #94a3b8;
-    --body-color: #0f172a;
-    --container-color: #1e293b;
-    --border-color: #334155;
-    --container-hover: #334155;
+    --title-color: #000000;
+    --text-color: #000000;
+    --text-color-light: #555555;
 
-    /* Gradient */
-    --gradient-text: linear-gradient(90deg, var(--first-color), #a855f7);
+    --body-color: #ffffff;
+    --container-color: #ffffff;
+    --border-color: #eeeeee;
+    --container-hover: #fafafa;
+
+    /* Gradient - Monochrome */
+    --gradient-text: linear-gradient(90deg, #000000, #333333);
 
     /* Font */
     --body-font: 'Outfit', sans-serif;
@@ -49,9 +46,9 @@
     --z-tooltip: 10;
     --z-scroll-top: 90;
 
-    /* Effects */
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 10px 40px rgba(56, 189, 248, 0.15);
+    /* Effects - Monochrome Shadows */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 10px 40px rgba(255, 255, 255, 0.08);
 }
 
 /* -------- Animations -------- */
@@ -181,11 +178,11 @@ img {
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: rgba(15, 23, 42, 0.7);
-    /* Translucent dark background */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Translucent white background */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -261,8 +258,8 @@ img {
 .hero {
     padding-top: calc(var(--header-height) + 6rem);
     padding-bottom: 6rem;
-    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent 40%),
-        radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.1), transparent 40%);
+    background: radial-gradient(circle at top right, rgba(0, 0, 0, 0.03), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.03), transparent 40%);
 }
 
 .hero__container {
@@ -333,7 +330,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #a855f7, var(--first-color));
+    background: linear-gradient(90deg, #000000, #333333);
     z-index: -1;
     transition: opacity 0.3s;
     opacity: 0;
@@ -341,7 +338,7 @@ img {
 
 .button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover::before {
@@ -403,7 +400,7 @@ img {
 .about__info-item:hover {
     box-shadow: var(--shadow-hover);
     transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.3);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .about__info-title {
@@ -456,7 +453,7 @@ img {
 
 .skill__bar {
     height: 6px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -467,7 +464,7 @@ img {
     border-radius: 0.5rem;
     position: relative;
     animation: skillBarFill 1.5s ease-out forwards;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* -------- Project Section -------- */
@@ -488,7 +485,7 @@ img {
 
 .project__card {
     background-color: var(--container-color);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 1.5rem;
     padding: 2rem;
     transition: all 0.4s ease;
@@ -508,14 +505,14 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
     z-index: -1;
 }
 
 .project__card:hover {
     box-shadow: var(--shadow-hover);
     transform: translateY(-10px);
-    border-color: rgba(56, 189, 248, 0.3);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .project__data {
@@ -550,11 +547,11 @@ img {
 .project__tag {
     display: inline-block;
     padding: 0.35rem 0.85rem;
-    background-color: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 2rem;
     font-size: var(--smaller-font-size);
-    color: var(--first-color-light);
+    color: var(--text-color);
     transition: all 0.3s ease;
 }
 
@@ -563,12 +560,12 @@ img {
     color: #fff;
     border-color: var(--first-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project__links {
     margin-top: auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 1.5rem;
 }
 
@@ -583,7 +580,7 @@ img {
     transition: all 0.3s ease;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 0.5rem;
     width: 100%;
 }
@@ -623,7 +620,7 @@ img {
 
 .contact__card {
     background-color: var(--body-color);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
@@ -634,7 +631,7 @@ img {
 .contact__card:hover {
     box-shadow: var(--shadow-hover);
     transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.3);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .contact__card-icon {
@@ -667,8 +664,8 @@ img {
     transition: all 0.3s ease;
     padding: 0.75rem 2rem;
     border-radius: 2rem;
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.03);
 }
 
 .contact__button:hover {
@@ -676,7 +673,7 @@ img {
     background-color: var(--first-color);
     border-color: var(--first-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* -------- Footer -------- */
@@ -685,7 +682,7 @@ img {
     background-color: var(--body-color);
     padding: 4rem 0 2rem;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer__container {
@@ -714,7 +711,7 @@ img {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: var(--z-scroll-top);
     opacity: 0;
     visibility: hidden;
@@ -729,7 +726,7 @@ img {
 
 .scroll-top:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* -------- Grid Utility Class -------- */
@@ -814,8 +811,8 @@ img {
         width: 100%;
         /* Full width */
         height: 100vh;
-        background-color: rgba(15, 23, 42, 0.98);
-        /* Solid dark background */
+        background-color: rgba(255, 255, 255, 0.98);
+        /* Solid light background */
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         box-shadow: none;
